@@ -1,0 +1,58 @@
+# --- COMA specific parameters ---
+
+action_selector: "multinomial"
+epsilon_start: .5
+epsilon_finish: .01
+epsilon_anneal_time: 100000
+mask_before_softmax: True 
+
+# runner: "parallel"
+runner: "episode"
+
+
+# buffer_size: 32
+# batch_size_run: 32
+# batch_size: 32
+
+# buffer_size: 2
+# batch_size_run: 2
+# batch_size: 2
+
+buffer_size: 1
+batch_size_run: 1
+batch_size: 1
+
+
+env_args:
+  state_last_action: False # critic adds last action internally
+
+# update the target network every {} training steps
+target_update_interval: 200
+
+lr: 0.0025
+critic_lr: 0.0005
+# lr: 0.001
+# critic_lr: 0.001
+td_lambda: 0.8
+
+# use hieca 
+mac: "FuN"
+agent_output_type: "pi_logits"
+learner: "FuN_learner"
+critic_q_fn: "latent"
+agent: "FuN"
+mixing_embed_dim: 64
+
+percept_hidden_dim : 128
+Msapce_hidden_dim : 64
+drnn_hidden_dim: 64
+n_goals: 32
+n_layers : 6
+rnn_hidden_dim : 64
+W_dim : 16
+
+adam: False
+
+name: "hieca"
+
+entropy_coef : 0.05

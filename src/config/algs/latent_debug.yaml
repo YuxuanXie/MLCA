@@ -1,0 +1,41 @@
+# --- COMA specific parameters ---
+
+action_selector: "gumbel"
+epsilon_start: .5
+epsilon_finish: .01
+epsilon_anneal_time: 100000
+mask_before_softmax: True 
+
+runner: "parallel"
+
+# buffer_size: 32
+# batch_size_run: 32
+# batch_size: 32
+
+buffer_size: 1
+batch_size_run: 1
+batch_size: 1
+
+env_args:
+  state_last_action: False # critic adds last action internally
+
+# update the target network every {} training steps
+target_update_interval: 200
+
+lr: 0.0005
+critic_lr: 0.0005
+# lr: 0.001
+# critic_lr: 0.001
+td_lambda: 0.8
+
+# use latent 
+mac: "latent"
+agent_output_type: "pi_logits"
+learner: "latent_learner"
+critic_q_fn: "latent"
+mixing_embed_dim: 64
+hypernet_layers: 2
+
+name: "latent"
+
+entropy_coef : 0.1
